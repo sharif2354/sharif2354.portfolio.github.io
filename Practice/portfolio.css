@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #f8fafc;
+  background-color: #0f172a;
+  line-height: 1.6;
+}
+
+/* Tests 12: Fixed at top of viewport */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1e293b;
+  display: flex;
+  justify-content: flex-end;
+  padding: 18px 30px;
+  gap: 24px;
+  z-index: 1000;
+  border-bottom: 1px solid #334155;
+}
+
+#navbar a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+#navbar a:hover {
+  color: #38bdf8;
+}
+
+/* User Story 10: Height equals 100% of viewport */
+#welcome-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  padding: 20px;
+}
+
+#welcome-section h1 {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  color: #38bdf8;
+}
+
+#welcome-section p {
+  font-size: 1.25rem;
+  color: #94a3b8;
+}
+
+#project-section {
+  padding: 80px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#project-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #f1f5f9;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.project-tile {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 24px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.project-tile:hover {
+  transform: translateY(-4px);
+  border-color: #38bdf8;
+}
+
+.project-tile a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.project-tile h3 {
+  color: #38bdf8;
+  margin-bottom: 8px;
+}
+
+.project-tile p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* Test 11: At least one media query */
+@media (max-width: 600px) {
+  #navbar {
+    justify-content: center;
+    padding: 14px 10px;
+    gap: 16px;
+  }
+
+  #welcome-section h1 {
+    font-size: 2.2rem;
+  }
+}

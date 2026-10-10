@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Engineering updates and technical notes by MD. Sharif Hosen." />
+  <title>Posts | Sharif Hosen</title>
+
+  <link rel="shortcut icon" href="./images/logo.ico" type="image/x-icon" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">&lt;/&gt;</span>
+        <span class="logo-text">Sharif Hosen</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="posts.html" class="active">Posts</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About Me</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="practice.html">Practice</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn-github" href="https://github.com/sharif2354" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main class="container page-main">
+
+    <section class="page-hero">
+      <div class="badge-pill">UPDATES &amp; NOTES</div>
+      <h1 class="hero-title">Posts</h1>
+      <div class="status-dot"></div>
+      <p class="hero-subtitle">
+        Engineering logs, active system builds, and architectural discoveries across full-stack development and machine learning.
+      </p>
+    </section>
+
+    <!-- POSTS GRID -->
+    <section class="post-grid">
+
+      <!-- POST 1: RESEARCH PROGRESS -->
+      <div class="post-entry-card">
+        <div class="entry-meta">
+          <span>RESEARCH LOG</span>
+          <span>&bull;</span>
+          <span>OCTOBER 2026</span>
+        </div>
+        <h2>MIMIC-IV Temporal Preprocessing Pipeline</h2>
+        <p>
+          Configured sliding-window clinical tokenization for ICU vital telemetry. Evaluating how multi-head attention handles irregularly sampled blood pressure and lab markers without distorting temporal intervals.
+        </p>
+        <div class="tag-row">
+          <span class="tag-badge">PyTorch</span>
+          <span class="tag-badge">Transformers</span>
+          <span class="tag-badge">MIMIC-IV</span>
+        </div>
+        <a class="entry-link" href="blog.html#icu-mortality">Read full notes →</a>
+      </div>
+
+      <!-- POST 2: BACKEND ARCHITECTURE -->
+      <div class="post-entry-card">
+        <div class="entry-meta">
+          <span>SYSTEMS &bull; API DESIGN</span>
+          <span>&bull;</span>
+          <span>AUGUST 2026</span>
+        </div>
+        <h2>Optimizing SmartCart-AI Inference Latency</h2>
+        <p>
+          Decoupled ResNet-50 visual inference workers from the primary Django REST API using background queues, keeping product checkout latency under 80ms while handling multi-part image ingestion.
+        </p>
+        <div class="tag-row">
+          <span class="tag-badge">Django</span>
+          <span class="tag-badge">PostgreSQL</span>
+          <span class="tag-badge">Computer Vision</span>
+        </div>
+        <a class="entry-link" href="blog.html#smartcart-ai">Read full notes →</a>
+      </div>
+
+      <!-- POST 3: WORKSTATION & ENVIRONMENT -->
+      <div class="post-entry-card">
+        <div class="entry-meta">
+          <span>DEVOPS &bull; WORKSTATION</span>
+          <span>&bull;</span>
+          <span>JULY 2026</span>
+        </div>
+        <h2>Fedora Linux for Deep Learning Pipelines</h2>
+        <p>
+          Standardized an isolated development container workflow under Fedora Workstation using native CUDA driver pass-through, rootless Podman, and virtual environments for reproducible model training.
+        </p>
+        <div class="tag-row">
+          <span class="tag-badge">Fedora</span>
+          <span class="tag-badge">Linux</span>
+          <span class="tag-badge">Docker</span>
+        </div>
+        <a class="entry-link" href="blog.html">Read full notes →</a>
+      </div>
+
+      <!-- POST 4: WEB STANDARDS -->
+      <div class="post-entry-card">
+        <div class="entry-meta">
+          <span>UI ENGINEERING</span>
+          <span>&bull;</span>
+          <span>MAY 2026</span>
+        </div>
+        <h2>Zero-JS CSS Grid Gazette Architecture</h2>
+        <p>
+          Constructed a 3-fractional-column editorial newspaper layout using explicit named grid areas and auto-flow rows, delivering responsive column restructuring with zero client-side JavaScript execution.
+        </p>
+        <div class="tag-row">
+          <span class="tag-badge">CSS Grid</span>
+          <span class="tag-badge">Semantic HTML</span>
+          <span class="tag-badge">W3C</span>
+        </div>
+        <a class="entry-link" href="index_3.html#newspaper">Inspect layout →</a>
+      </div>
+
+      <!-- POST 5: MACHINE LEARNING -->
+      <div class="post-entry-card">
+        <div class="entry-meta">
+          <span>MACHINE LEARNING</span>
+          <span>&bull;</span>
+          <span>APRIL 2026</span>
+        </div>
+        <h2>Multimodal Feature Alignment Benchmarks</h2>
+        <p>
+          Benchmarking late-fusion cross-attention against early concatenation on the DOLOS deception dataset, validating that preserving raw acoustic spectral energy improves classification stability.
+        </p>
+        <div class="tag-row">
+          <span class="tag-badge">Multimodal</span>
+          <span class="tag-badge">Audio / Vision</span>
+          <span class="tag-badge">PyTorch</span>
+        </div>
+        <a class="entry-link" href="blog.html#lie-detection">Read full notes →</a>
+      </div>
+
+      <!-- POST 6: NETWORKING & CRYPTOGRAPHY -->
+      <div class="post-entry-card">
+        <div class="entry-meta">
+          <span>SECURITY</span>
+          <span>&bull;</span>
+          <span>MARCH 2026</span>
+        </div>
+        <h2>Diffie-Hellman Key Exchange Analysis</h2>
+        <p>
+          Explored discrete logarithm resistance and handshake protection against replay attacks, analyzing IP header payload fragmentation dynamics in enterprise software environments.
+        </p>
+        <div class="tag-row">
+          <span class="tag-badge">Cryptography</span>
+          <span class="tag-badge">Networking</span>
+          <span class="tag-badge">Security</span>
+        </div>
+        <a class="entry-link" href="about.html">View background →</a>
+      </div>
+
+    </section>
+
+    <!-- STATUS BANNER -->
+    <div class="note-banner">
+      <p>
+        System Log &bull; Continuously updated as research benchmarks and deployment pipelines are documented.
+      </p>
+    </div>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        <p>&copy; <span data-year>2026</span> MD. Sharif Hosen &bull; Green University of Bangladesh</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/sharif2354" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/md-sharif-hosen-18a710239" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+/* Test 1 */
+html {
+  font-size: 24px;
+}
+
+/* Tests 3 & 4 */
+.newspaper {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fcfbf7;
+  color: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Tests 17, 18, 19 */
+.name {
+  font-size: 2rem;
+  font-family: 'Times New Roman', serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.date {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #1a1a1a;
+  padding-bottom: 10px;
+}
+
+/* Tests 21 & 22 */
+.headline {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+/* Tests 23, 24, 25 */
+.sub-headline {
+  font-weight: 100;
+  font-size: 1.5em;
+  font-style: italic;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* Tests 20 & 26 */
+.author {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Tests 27 & 28 */
+.text {
+  text-indent: 20px;
+  line-height: 2em;
+  margin-bottom: 15px;
+}
+
+/* Tests 29 & 30 */
+.text::first-letter {
+  font-weight: bold;
+  font-size: 2em;
+}

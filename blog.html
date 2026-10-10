@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Technical blog and research notes by MD. Sharif Hosen on Deep Learning, Systems, and Web Engineering." />
+  <title>Blog | MD. Sharif Hosen</title>
+
+  <link rel="shortcut icon" href="./images/logo.ico" type="image/x-icon" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">&lt;/&gt;</span>
+        <span class="logo-text">Sharif Hosen</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="posts.html">Posts</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="about.html">About Me</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="practice.html">Practice</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn-github" href="https://github.com/sharif2354" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main class="container page-main">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="badge-pill">RESEARCH NOTES &amp; ARCHITECTURE</div>
+      <h1 class="hero-title">The Engineering Blog</h1>
+      <div class="status-dot"></div>
+      <p class="hero-subtitle">
+        Technical write-ups, deep learning experiments, and architectural insights from my projects at Green University of Bangladesh.
+      </p>
+    </section>
+
+    <!-- BLOG POSTS STREAM -->
+    <section class="blog-stream">
+
+      <!-- POST 1: ICU MORTALITY PREDICTION -->
+      <div class="blog-card" id="icu-mortality">
+        <div class="card-meta">HEALTHCARE INFORMATICS &bull; DEEP LEARNING &bull; RESEARCH THESIS</div>
+        <h2 class="card-heading">Dynamic ICU Mortality Prediction with Transformers on MIMIC-IV</h2>
+        <p class="card-summary">
+          My undergraduate thesis investigates predicting dynamic in-hospital mortality for intensive care unit patients using Transformer-based sequence architectures. Clinical physiological streams are inherently irregular, multi-rate, and characterized by sporadic observation intervals.
+        </p>
+
+        <h3 class="sub-heading">Key Architectural Challenges</h3>
+        <ul class="card-list">
+          <li><strong>Irregular Time-Series Alignment:</strong> Processing longitudinal electronic health records without discarding temporal spacing between consecutive clinical tests.</li>
+          <li><strong>Multi-Head Self-Attention:</strong> Modeling complex interactions across physiological metrics (vital signs, lab biomarkers, vasoactive drug infusions) over variable observation windows.</li>
+          <li><strong>Dynamic Risk Horizon Forecasting:</strong> Producing rolling 24-hour and 48-hour mortality probability distributions rather than static single-instance labels.</li>
+        </ul>
+
+        <p class="card-footnote">
+          By leveraging PhysioNet's MIMIC-IV database, the objective is to generate calibrated, actionable predictions early enough during a patient's stay to support acute clinical interventions.
+        </p>
+      </div>
+
+      <!-- POST 2: MULTIMODAL LIE DETECTION -->
+      <div class="blog-card" id="lie-detection">
+        <div class="card-meta">COMPUTER VISION &bull; AUDIO PROCESSING &bull; MULTIMODAL AI</div>
+        <h2 class="card-heading">Multimodal Lie Detection Using Late Fusion and Temporal Attention</h2>
+        <p class="card-summary">
+          Human deception exhibits subtle, distributed indicators across multiple sensory streams. This project introduces a deep learning framework combining acoustic representations with facial visual dynamics, benchmarked on the DOLOS dataset to reach 82% classification accuracy[cite: 20].
+        </p>
+
+        <h3 class="sub-heading">System Pipeline</h3>
+        <ul class="card-list">
+          <li><strong>Visual Feature Extractor:</strong> Processing temporal facial micro-expressions and head pose variations over frame sequences.</li>
+          <li><strong>Acoustic Signal Processing:</strong> Extracting spectrogram representations to isolate pitch instability, pause rates, and harmonic irregularities.</li>
+          <li><strong>Late Fusion Layer:</strong> Concatenating high-level modality embeddings with cross-attention to preserve unimodal signal integrity prior to the final decision boundary.</li>
+        </ul>
+      </div>
+
+      <!-- POST 3: SMARTCART-AI -->
+      <div class="blog-card" id="smartcart-ai">
+        <div class="card-meta">FULL-STACK &bull; DJANGO REST &bull; PYTORCH INFERENCE</div>
+        <h2 class="card-heading">Architecting SmartCart-AI: Computer Vision in Modern E-Commerce</h2>
+        <p class="card-summary">
+          SmartCart-AI bridges modern web engineering with real-time visual product identification. The architecture utilizes Django REST Framework and PostgreSQL for transactional state, coupled with a PyTorch ResNet-50 inference pipeline for image-based product discovery.
+        </p>
+
+        <h3 class="sub-heading">Implementation Breakdown</h3>
+        <ul class="card-list">
+          <li>Optimized multi-part image ingestion with authenticated token management.</li>
+          <li>Asynchronous background model inference to prevent blocking server threads.</li>
+          <li>PostgreSQL relational indexing for low-latency product catalog queries.</li>
+          <li>Responsive client interface with CSS Grid and modular React component states[cite: 9].</li>
+        </ul>
+      </div>
+
+      <!-- POST 4: CSS VISUALIZATION & DATA GRIDS -->
+      <div class="blog-card" id="css-architecture">
+        <div class="card-meta">UI ENGINEERING &bull; W3C STANDARDS &bull; DATA VISUALIZATION</div>
+        <h2 class="card-heading">Declarative Data Visualization in Plain CSS</h2>
+        <p class="card-summary">
+          Building data-dense interfaces—such as schedule matrix heatmaps and responsive editorial gazettes—does not always demand heavy client-side JavaScript libraries[cite: 9]. By using CSS attribute substring selectors (<code>[class*="available-"]</code>) and hard-line linear gradients, tabular layouts can map status data into visual heatmaps natively while preserving strict accessibility via ARIA attributes[cite: 9].
+        </p>
+      </div>
+
+    </section>
+
+    <!-- CALL TO ACTION CARD -->
+    <section class="cta-banner">
+      <div class="badge-pill">OPEN FOR COLLABORATION</div>
+      <h2 class="cta-title">Interested in discussing these topics?</h2>
+      <p class="cta-desc">
+        I am always keen to discuss deep learning methodologies, healthcare informatics, or scalable full-stack web architectures[cite: 21].
+      </p>
+      <a class="btn-contact" href="contact.html">Contact Me ↗</a>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        <p>&copy; <span data-year>2026</span></p>
+        <p>MD. Sharif Hosen &bull; Green University of Bangladesh</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/sharif2354" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/md-sharif-hosen-18a710239" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="about.html">About Me</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

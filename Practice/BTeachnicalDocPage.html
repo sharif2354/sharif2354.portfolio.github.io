@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Technical Documentation</title>
+    <link rel="stylesheet" href="BTDP.css" />
+  </head>
+  <body>
+    <!-- Navbar (Tests 12, 13, 14, 15, 16, 17, 18, 19, 20) -->
+    <nav id="navbar">
+      <header>JS Documentation</header>
+      <a class="nav-link" href="#Introduction">Introduction</a>
+      <a class="nav-link" href="#JavaScript_Basics">JavaScript Basics</a>
+      <a class="nav-link" href="#Variables_and_Types">Variables and Types</a>
+      <a class="nav-link" href="#Functions_and_Scope">Functions and Scope</a>
+      <a class="nav-link" href="#Modern_ES6_Features">Modern ES6 Features</a>
+    </nav>
+
+    <!-- Main Content (Tests 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11) -->
+    <main id="main-doc">
+      <!-- Section 1 -->
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <p>
+          JavaScript is a lightweight, cross-platform, object-based scripting language primarily used to bring interactivity to web pages.
+        </p>
+        <p>
+          Inside a host environment like a web browser, JavaScript can be connected to the objects of its environment to provide programmatic control over them.
+        </p>
+        <code>console.log("Welcome to JavaScript Documentation");</code>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="main-section" id="JavaScript_Basics">
+        <header>JavaScript Basics</header>
+        <p>
+          JavaScript borrows most of its syntax from Java, C, and C++, but has also been influenced by Awk, Perl, and Python.
+        </p>
+        <p>
+          JavaScript is case-sensitive and uses the Unicode character set. You can write statements followed by an optional semicolon.
+        </p>
+        <code>const greeting = "Hello, world!";</code>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="main-section" id="Variables_and_Types">
+        <header>Variables and Types</header>
+        <p>
+          You use variables as symbolic names for values in your application. The names of variables, called identifiers, conform to certain rules.
+        </p>
+        <p>
+          You can declare a variable in three ways using specific keywords depending on scoping needs:
+        </p>
+        <ul>
+          <li><code>var</code> declares a function-scoped or globally-scoped variable.</li>
+          <li><code>let</code> declares a block-scoped local variable.</li>
+          <li><code>const</code> declares a block-scoped, read-only named constant.</li>
+          <li>Numbers represent both integer and floating-point values.</li>
+          <li>Strings represent textual data enclosed within quotes.</li>
+        </ul>
+        <code>let userScore = 100;</code>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="main-section" id="Functions_and_Scope">
+        <header>Functions and Scope</header>
+        <p>
+          Functions are one of the fundamental building blocks in JavaScript. A function is a reusable JavaScript procedure—a set of statements that performs a task or calculates a value.
+        </p>
+        <p>
+          To use a function, you must define it somewhere in the scope from which you wish to call it.
+        </p>
+        <code>function square(number) { return number * number; }</code>
+      </section>
+
+      <!-- Section 5 -->
+      <section class="main-section" id="Modern_ES6_Features">
+        <header>Modern ES6 Features</header>
+        <p>
+          ECMAScript 2015 (ES6) introduced significant updates to the language, including template literals, destructuring assignment, default parameters, and classes.
+        </p>
+        <p>
+          Arrow functions provide a more concise syntax for writing function expressions and lexically bind the <code>this</code> value.
+        </p>
+        <code>const add = (a, b) => a + b;</code>
+      </section>
+    </main>
+  </body>
+</html>

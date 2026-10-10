@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Web Hub</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --star-color: #facc15;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    header {
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+    }
+    header h1 { font-size: 2.25rem; color: var(--accent); margin-bottom: 0.5rem; }
+    section {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    caption { font-weight: 600; margin-bottom: 0.75rem; color: var(--text-muted); text-align: left; }
+    th, td { padding: 0.75rem 1rem; border: 1px solid var(--border); }
+    th { background-color: rgba(255, 255, 255, 0.05); color: var(--accent); }
+    .form-group { margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group.checkbox-group { flex-direction: row; align-items: center; gap: 0.5rem; }
+    label { font-weight: 500; font-size: 0.95rem; }
+    .required-marker { color: #f87171; }
+    input[type="text"], input[type="email"], input[type="number"] {
+      padding: 0.65rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background-color: #0b1120;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+    .help-text { font-size: 0.85rem; color: var(--text-muted); }
+    input[type="submit"] {
+      background-color: var(--accent);
+      color: #0b1120;
+      font-weight: 700;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    input[type="submit"]:hover { background-color: var(--accent-hover); }
+    .media-card { margin-bottom: 2rem; }
+    .media-card:last-child { margin-bottom: 0; }
+    .media-card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+    video, audio { width: 100%; border-radius: 8px; }
+    .movie-banner { display: flex; flex-direction: column; gap: 1.5rem; }
+    @media (min-width: 640px) { .movie-banner { flex-direction: row; align-items: flex-start; } }
+    .movie-banner img { width: 180px; height: auto; border-radius: 8px; border: 1px solid var(--border); }
+    .movie-info { flex: 1; }
+    .star-display { color: var(--star-color); letter-spacing: 2px; }
+    ul.cast-list { list-style-type: none; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+    .cart-summary {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .cart-summary img { width: 100px; height: 100px; object-fit: cover; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Tech & Community Portal</h1>
+      <p>Demonstrating accessible UI layouts, forms, multimedia, and tables</p>
+    </header>
+
+    <main class="container" style="padding: 0;">
+      <!-- Conference Schedule Section -->
+      <section aria-labelledby="schedule-heading">
+        <h2 id="schedule-heading">Tech Conference 2025 Schedule</h2>
+        <div style="overflow-x: auto;">
+          <table>
+            <caption>Schedule by Track and Time</caption>
+            <thead>
+              <tr>
+                <th scope="col">Time</th>
+                <th scope="col">Track A</th>
+                <th scope="col">Track B</th>
+                <th scope="col">Track C</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">9:00 AM</th>
+                <td>Keynote: Tech Future</td>
+                <td>Intro to Web Dev</td>
+                <td>UX for All</td>
+              </tr>
+              <tr>
+                <th scope="row">10:00 AM</th>
+                <td>Accessibility Deep Dive</td>
+                <td>CSS for Beginners</td>
+                <td>Inclusive Design Principles</td>
+              </tr>
+              <tr>
+                <th scope="row">11:00 AM</th>
+                <td colspan="3">Break</td>
+              </tr>
+              <tr>
+                <th scope="row">11:30 AM</th>
+                <td>AR/VR in Education</td>
+                <td>JavaScript Fundamentals</td>
+                <td>Design Systems at Scale</td>
+              </tr>
+              <tr>
+                <th scope="row">12:30 PM</th>
+                <td colspan="3">Lunch Break</td>
+              </tr>
+              <tr>
+                <th scope="row">2:00 PM</th>
+                <td>Voice UI Workshop</td>
+                <td>Git & GitHub Essentials</td>
+                <td>Color & Contrast in UI</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Movie Showcase Section -->
+      <section aria-labelledby="movie-heading">
+        <h2 id="movie-heading">Featured Movie Review</h2>
+        <div class="movie-banner">
+          <img 
+            src="https://cdn.freecodecamp.org/curriculum/labs/rise-beyond-2.png" 
+            alt="Official movie poster for Rise Beyond showing silhouettes against an expansive starry skyline"
+          >
+          <div class="movie-info">
+            <h3 style="margin-bottom: 0.5rem; font-size: 1.3rem;">Rise Beyond</h3>
+            <p style="margin-bottom: 1rem;">
+              An ambitious sci-fi adventure exploring human endurance, community solidarity, and discovery across uncharted planetary frontiers.
+            </p>
+            <p style="margin-bottom: 1.25rem;">
+              <b>Movie Rating:</b>
+              <span class="star-display" aria-hidden="true">⭐⭐⭐⭐⭐⭐⭐⭐⭐☆</span>
+              <span>(9.2/10)</span>
+            </p>
+
+            <h4 style="margin-bottom: 0.5rem;">Cast Members</h4>
+            <ul class="cast-list">
+              <li><b>James Holloway</b> as Ethan Carter</li>
+              <li><b>Elena Rostova</b> as Commander Vane</li>
+              <li><b>Marcus Sterling</b> as Dr. Noah Reid</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Multimedia Center -->
+      <section aria-labelledby="media-heading">
+        <h2 id="media-heading">Multimedia Player</h2>
+
+        <div class="media-card">
+          <h3>Sailing Away</h3>
+          <audio controls aria-label="Audio player for Sailing Away">
+            <source src="https://cdn.freecodecamp.org/curriculum/js-music-player/sailing-away.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+
+        <div class="media-card">
+          <h3>What is the Map Method and How Does It Work?</h3>
+          <video controls width="600" aria-label="Educational video explaining the JavaScript map method">
+            <source src="https://cdn.freecodecamp.org/curriculum/labs/what-is-the-map-method-and-how-does-it-work.mp4" type="video/mp4">
+            <track 
+              src="https://cdn.freecodecamp.org/curriculum/labs/what-is-the-map-method-and-how-does-it-work.vtt" 
+              kind="subtitles" 
+              srclang="en" 
+              label="English"
+            >
+          </video>
+        </div>
+
+        <div class="media-card">
+          <h3 style="margin-top: 1rem;">Video Transcript</h3>
+          <p class="help-text" style="color: var(--text);">
+            In this video, we explore how the JavaScript <code>map()</code> method works. The map method iterates over each element in an array, applies a callback function to it, and returns a new array with the transformed values without mutating the original array.
+          </p>
+        </div>
+      </section>
+
+      <!-- Checkout Flow -->
+      <section aria-labelledby="checkout-heading">
+        <h2 id="checkout-heading">Checkout</h2>
+
+        <div class="cart-summary">
+          <img src="https://cdn.freecodecamp.org/curriculum/labs/cube.jpg" alt="Rubik's cube toy puzzle">
+          <div>
+            <h3>Your Cart</h3>
+            <p class="help-text">1x Precision Speed Cube</p>
+            <p><strong>Total: $19.99</strong></p>
+          </div>
+        </div>
+
+        <form>
+          <h3 style="margin-bottom: 1rem;">Payment Information</h3>
+          
+          <div class="form-group">
+            <label for="card-name">
+              Name on Card <span class="required-marker" aria-hidden="true">*</span>
+            </label>
+            <input type="text" id="card-name" name="card-name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="card-number">
+              Card Number <span class="required-marker" aria-hidden="true">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="card-number" 
+              name="card-number" 
+              aria-describedby="card-number-help" 
+              required
+            >
+            <p id="card-number-help" class="help-text">Please enter a 16-digit card number without spaces or dashes.</p>
+          </div>
+
+          <input type="submit" value="Complete Purchase">
+        </form>
+      </section>
+
+      <!-- Community Donation Form -->
+      <section aria-labelledby="donation-heading">
+        <h2 id="donation-heading">Support Our Mission</h2>
+        
+        <form>
+          <div class="form-group">
+            <label for="donor-name">
+              Full Name <span class="required-marker" aria-hidden="true">*</span>
+            </label>
+            <input type="text" id="donor-name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="donor-email">
+              Email Address <span class="required-marker" aria-hidden="true">*</span>
+            </label>
+            <input type="email" id="donor-email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="donor-amount">
+              Donation Amount ($) <span class="required-marker" aria-hidden="true">*</span>
+            </label>
+            <input type="number" id="donor-amount" name="amount" min="1" required>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="newsletter" name="newsletter">
+            <label for="newsletter">Subscribe to monthly progress updates</label>
+          </div>
+
+          <input type="submit" value="Submit Donation">
+        </form>
+      </section>
+    </main>
+
+    <footer style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+      <p>&copy; 2026 Accessible Web Hub. Built with semantic HTML & WAI-ARIA standards.</p>
+    </footer>
+  </div>
+</body>
+</html>

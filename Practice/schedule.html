@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Conference 2025 Schedule</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { color: var(--accent); margin-bottom: 1.5rem; font-size: 2rem; }
+    .table-container { overflow-x: auto; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card-bg);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    caption {
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      caption-side: top;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.85rem 1rem;
+      text-align: left;
+    }
+    thead th {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--accent);
+      font-weight: 700;
+    }
+    tbody th {
+      background: rgba(255, 255, 255, 0.02);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    td[colspan] {
+      text-align: center;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.08);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Tech Conference 2025 Schedule</h1>
+
+    <div class="table-container">
+      <table>
+        <caption>Schedule by Track and Time</caption>
+        <thead>
+          <tr>
+            <th scope="col">Time</th>
+            <th scope="col">Track A</th>
+            <th scope="col">Track B</th>
+            <th scope="col">Track C</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">9:00 AM</th>
+            <td>Keynote: Tech Future</td>
+            <td>Intro to Web Dev</td>
+            <td>UX for All</td>
+          </tr>
+          <tr>
+            <th scope="row">10:00 AM</th>
+            <td>Accessibility Deep Dive</td>
+            <td>CSS for Beginners</td>
+            <td>Inclusive Design Principles</td>
+          </tr>
+          <tr>
+            <th scope="row">11:00 AM</th>
+            <td colspan="3">Break</td>
+          </tr>
+          <tr>
+            <th scope="row">11:30 AM</th>
+            <td>AR/VR in Education</td>
+            <td>JavaScript Fundamentals</td>
+            <td>Design Systems at Scale</td>
+          </tr>
+          <tr>
+            <th scope="row">12:30 PM</th>
+            <td colspan="3">Lunch Break</td>
+          </tr>
+          <tr>
+            <th scope="row">2:00 PM</th>
+            <td>Voice UI Workshop</td>
+            <td>Git & GitHub Essentials</td>
+            <td>Color & Contrast in UI</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

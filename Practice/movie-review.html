@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rise Beyond - Movie Review</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --star-color: #facc15;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      padding: 2rem 1rem;
+    }
+    main {
+      max-width: 650px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    h1 { color: var(--accent); font-size: 2.25rem; margin-bottom: 1rem; }
+    img {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 1.25rem;
+    }
+    p { margin-bottom: 1rem; }
+    .star-display {
+      color: var(--star-color);
+      letter-spacing: 2px;
+    }
+    h2 {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+    ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    li b { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Rise Beyond</h1>
+
+    <img 
+      src="https://cdn.freecodecamp.org/curriculum/labs/rise-beyond-2.png" 
+      alt="Official movie poster for Rise Beyond showing silhouettes against an expansive starry skyline"
+    >
+
+    <p>
+      An ambitious sci-fi adventure exploring human endurance, community solidarity, and discovery across uncharted planetary frontiers.
+    </p>
+
+    <p>
+      <b>Movie Rating:</b>
+      <span class="star-display" aria-hidden="true">⭐⭐⭐⭐⭐⭐⭐⭐⭐☆</span>
+      (9.2/10)
+    </p>
+
+    <h2>Cast Members</h2>
+
+    <ul>
+      <li><b>James Holloway</b> as Ethan Carter</li>
+      <li><b>Elena Rostova</b> as Commander Vane</li>
+      <li><b>Marcus Sterling</b> as Dr. Noah Reid</li>
+    </ul>
+  </main>
+</body>
+</html>

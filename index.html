@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MD. Sharif Hosen | Web Systems Portfolio</title>
+
+  <link rel="shortcut icon" href="./images/logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="myportfolio.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body class="landing-page">
+
+  <!-- ============================================================
+       FIXED HEADER — all pages connected
+       ============================================================ -->
+  <header id="header">
+    <div class="logo-area">
+      <a href="index.html">
+        <img id="header-img" src="https://cdn.freecodecamp.org/testable-projects-fcc/images/product-landing-page-logo.png" alt="Developer Logo" />
+      </a>
+    </div>
+
+    <nav id="navbar">
+      <a class="nav-link active" href="index.html">Home</a>
+      <a class="nav-link" href="posts.html">Posts</a>
+      <a class="nav-link" href="blog.html">Blog</a>
+      <a class="nav-link" href="about-me.html">About Me</a>
+      <a class="nav-link" href="portfolio.html">Portfolio</a>
+      <a class="nav-link" href="practice.html">Practice</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a id="profile-link" href="https://github.com/sharif2354" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section id="welcome-section">
+    <div class="hero-left">
+      <span class="badge">Portfolio &amp; System Showcase</span>
+      <h1>MD. Sharif Hosen</h1>
+      <p class="hero-desc">
+        Software engineering student specializing in full-stack architecture,
+        CSS Grid &amp; Flexbox engines, and accessible web standards.
+      </p>
+      <form id="form" action="https://www.freecodecamp.org/email-submit" method="post">
+        <input type="email" id="email" name="email" placeholder="Enter your email for technical updates" required />
+        <input type="submit" id="submit" value="Connect" />
+      </form>
+    </div>
+
+    <div class="space-container">
+      <div class="space">
+        <div class="earth"></div>
+        <div class="orbit">
+          <div class="moon"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEWSPAPER
+       ============================================================ -->
+  <section id="newspaper" class="section-wrapper">
+    <div class="section-heading">
+      <h2>CSS Grid Newspaper Architecture</h2>
+      <p>Named grid template areas spanning 3 fractional columns with auto-flow rows.</p>
+    </div>
+
+    <div class="newspaper-layout">
+      <header class="title"><h1>The Developer Gazette</h1></header>
+
+      <article class="feature-article">
+        <h2>Scalable Full-Stack Web Architectures</h2>
+        <p class="article-text">
+          Modern high-performance web systems require clean separation between modular frontend
+          styling and robust backend APIs. Building decoupled, maintainable layouts ensures
+          predictable rendering across heterogeneous display form factors.
+        </p>
+      </article>
+
+      <figure class="cover-image">
+        <img src="https://cdn.freecodecamp.org/curriculum/labs/cover-photo.jpg"
+             alt="Scenic view representing clean engineering design" />
+      </figure>
+
+      <article class="secondary-article">
+        <h2>Predictive Machine Intelligence</h2>
+        <p class="article-text">
+          Transformer-based sequence analysis models unlock dynamic forecasting horizons for
+          mission-critical operations, bridging raw streaming data to actionable dashboards.
+        </p>
+      </article>
+
+      <article class="small-article1">
+        <h3>Microservices</h3>
+        <p class="article-text">Isolated event pipelines reduce blast radius in production runtimes.</p>
+      </article>
+
+      <article class="small-article2">
+        <h3>CSS Grid Spec</h3>
+        <p class="article-text">Explicit area mappings replace brittle legacy float wrappers entirely.</p>
+      </article>
+
+      <article class="small-article3">
+        <h3>Accessibility</h3>
+        <p class="article-text">Strict ARIA roles and tabular scopes ensure complete assistive parity.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DATA
+       ============================================================ -->
+  <section id="data-systems" class="section-wrapper">
+    <div class="section-heading">
+      <h2>Attribute Selectors &amp; Table Schemas</h2>
+      <p>Dynamic linear gradients mapped via exact and substring attribute selectors.</p>
+    </div>
+
+    <div class="table-container">
+      <h3>Book Inventory Database</h3>
+      <table class="inventory-table">
+        <thead>
+          <tr>
+            <th>Title</th><th>Author</th><th>Category</th><th>Status</th><th>Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="read">
+            <td>Designing Data-Intensive Applications</td>
+            <td>Martin Kleppmann</td>
+            <td>Distributed Systems</td>
+            <td><span class="status">Read</span></td>
+            <td><span class="rate three"><span></span><span></span><span></span></span></td>
+          </tr>
+          <tr class="in-progress">
+            <td>Computer Networks: A Systems Approach</td>
+            <td>Larry L. Peterson</td>
+            <td>Networking</td>
+            <td><span class="status">In Progress</span></td>
+            <td><span class="rate two"><span></span><span></span><span></span></span></td>
+          </tr>
+          <tr class="to-read">
+            <td>Deep Learning Systems</td>
+            <td>Alexey Dosovitskiy</td>
+            <td>Machine Learning</td>
+            <td><span class="status">To Read</span></td>
+            <td><span class="rate one"><span></span><span></span><span></span></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-container">
+      <table class="availability-table">
+        <caption>Weekly Meeting Availability Schedule</caption>
+        <thead>
+          <tr>
+            <th scope="col">Time</th>
+            <th scope="col">Monday</th>
+            <th scope="col">Wednesday</th>
+            <th scope="col">Friday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="sharp">
+            <th scope="row" class="time">09:00 AM</th>
+            <td class="available-0" aria-label="0 available"></td>
+            <td class="available-2" aria-label="2 available"></td>
+            <td class="available-5" aria-label="5+ available"></td>
+          </tr>
+          <tr class="half">
+            <th scope="row" class="time">10:00 AM</th>
+            <td class="available-1" aria-label="1 available"></td>
+            <td class="available-3" aria-label="3 available"></td>
+            <td class="available-4" aria-label="4 available"></td>
+          </tr>
+          <tr class="sharp">
+            <th scope="row" class="time">11:00 AM</th>
+            <td class="available-3" aria-label="3 available"></td>
+            <td class="available-4" aria-label="4 available"></td>
+            <td class="available-1" aria-label="1 available"></td>
+          </tr>
+          <tr class="half">
+            <th scope="row" class="time">02:00 PM</th>
+            <td class="available-5" aria-label="5+ available"></td>
+            <td class="available-2" aria-label="2 available"></td>
+            <td class="available-0" aria-label="0 available"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div id="legend">
+        <span>Availability Scale</span>
+        <div id="legend-gradient"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DOCS
+       ============================================================ -->
+  <section id="main-doc" class="section-wrapper">
+    <div class="section-heading">
+      <h2>Technical Documentation</h2>
+      <p>Architecture, styling, and accessibility references.</p>
+    </div>
+
+    <div class="docs-content">
+      <section class="main-section">
+        <header><h3>CSS Grid Architecture</h3></header>
+        <p>CSS Grid provides two-dimensional layout mechanisms combining explicit columns and automatic row sizing.</p>
+        <code>grid-template-areas: "title title title" "feature-article feature-article cover-image";</code>
+        <ul>
+          <li>Fractional units scale fluidly across viewports without rounding errors.</li>
+          <li>Subgrids allow nested children to align cleanly with ancestor tracks.</li>
+          <li>Gap declarations eliminate the need for fragile margin hacks on items.</li>
+        </ul>
+      </section>
+
+      <section class="main-section">
+        <header><h3>Attribute Selectors</h3></header>
+        <p>Attribute selectors target elements based on the exact presence or substring structure of their attributes.</p>
+        <code>tr[class="read"] span[class="status"] { border: 1px solid #22c55e; }</code>
+        <ul>
+          <li>The <code>^=</code> operator matches attribute strings beginning with a specific prefix.</li>
+          <li>The <code>~=</code> operator matches distinct whitespace-separated words within class strings.</li>
+        </ul>
+      </section>
+
+      <section class="main-section">
+        <header><h3>Keyframe Animations</h3></header>
+        <p>CSS keyframe animations enable hardware-accelerated transitions along translation and rotation vectors.</p>
+        <code>@keyframes orbit { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</code>
+      </section>
+
+      <section class="main-section">
+        <header><h3>Accessibility and ARIA</h3></header>
+        <p>Semantic HTML5 structure ensures assistive technologies parse layout trees correctly.</p>
+        <code>&lt;th scope="col"&gt;Day&lt;/th&gt; &lt;th scope="row"&gt;Time&lt;/th&gt;</code>
+      </section>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROJECT TILES — EVERY BUTTON CONNECTED
+       ============================================================ -->
+  <section id="project-section" class="section-wrapper">
+    <div class="section-heading">
+      <h2>Explore My Site</h2>
+      <p>Every section of the portfolio, one click away.</p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-tile">
+        <a href="posts.html">
+          <h3>Posts</h3>
+          <p>Short development updates and learning notes from my current projects.</p>
+        </a>
+      </div>
+
+      <div class="project-tile">
+        <a href="blog.html">
+          <h3>Blog</h3>
+          <p>Full-length articles on software engineering, machine learning, and research.</p>
+        </a>
+      </div>
+
+      <div class="project-tile">
+        <a href="about.html">
+          <h3>About Me</h3>
+          <p>Bio, education, and technical background — who I am and what I'm building toward.</p>
+        </a>
+      </div>
+
+      <div class="project-tile">
+        <a href="portfolio.html">
+          <h3>Portfolio</h3>
+          <p>Filterable grid of AI, web development, software engineering, and application projects.</p>
+        </a>
+      </div>
+
+      <div class="project-tile">
+        <a href="practice.html">
+          <h3>Practice Projects</h3>
+          <p>Complete directory of frontend practice files, FCC projects, and CSS animations.</p>
+        </a>
+      </div>
+
+      <div class="project-tile">
+        <a href="contact.html">
+          <h3>Contact</h3>
+          <p>Get in touch via email, GitHub, LinkedIn, or the contact form with map location.</p>
+        </a>
+      </div>
+
+      <div class="project-tile">
+        <a href="https://github.com/sharif2354" target="_blank" rel="noopener noreferrer">
+          <h3>GitHub ↗</h3>
+          <p>Browse my source code, open-source contributions, and coding history.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="note-card">
+      <p class="note">
+        Engineering Notice: All visual layouts adhere to W3C semantic specifications,
+        responsive media query constraints, and CSS custom property hierarchies.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <p>&copy; 2026 MD. Sharif Hosen. Engineered with vanilla HTML5, CSS Grid, and Flexbox.</p>
+  </footer>
+
+  <script src="myportfolio.js"></script>
+  <script>
+    // Header Mobile Navigation Toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.querySelector('.menu-toggle');
+      const navbar = document.querySelector('#navbar');
+
+      if (toggle && navbar) {
+        toggle.addEventListener('click', () => {
+          navbar.classList.toggle('open');
+          toggle.classList.toggle('active');
+          const isOpen = navbar.classList.contains('open');
+          toggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        navbar.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navbar.classList.remove('open');
+            toggle.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

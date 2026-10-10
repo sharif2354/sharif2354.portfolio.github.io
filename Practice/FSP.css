@@ -1,0 +1,73 @@
+body {
+  background-color: #0f172a;
+  font-family: Arial, sans-serif;
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 28px;
+  color: #38bdf8;
+}
+
+.feature-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 16px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.15s ease, border-color 0.2s ease;
+}
+
+.feature-card:hover {
+  border-color: #64748b;
+  transform: translateY(-2px);
+}
+
+/* Tests 8, 9, 10, 11, 12: Checkbox base properties */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #64748b;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  margin: 0;
+}
+
+/* Tests 13, 14, 15: Checked state, checkmark, and color changes */
+input[type="checkbox"]:checked {
+  background-color: #0284c7;
+  border-color: #38bdf8;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+}

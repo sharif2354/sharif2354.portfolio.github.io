@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Availability Table</title>
+    <link rel="stylesheet" href="BAT.css" />
+  </head>
+  <body>
+    <table>
+      <caption>Weekly Meeting Availability Schedule</caption>
+      <thead>
+        <tr>
+          <th scope="col">Time</th>
+          <th scope="col">Monday</th>
+          <th scope="col">Wednesday</th>
+          <th scope="col">Friday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="sharp">
+          <th scope="row" class="time">09:00 AM</th>
+          <td class="available-0" aria-label="0 available"></td>
+          <td class="available-1" aria-label="1 available"></td>
+          <td class="available-2" aria-label="2 available"></td>
+        </tr>
+        <tr class="half">
+          <th scope="row" class="time">09:30 AM</th>
+          <td class="available-3" aria-label="3 available"></td>
+          <td class="available-4" aria-label="4 available"></td>
+          <td class="available-5" aria-label="5+ available"></td>
+        </tr>
+        <tr class="sharp">
+          <th scope="row" class="time">10:00 AM</th>
+          <td class="available-1" aria-label="1 available"></td>
+          <td class="available-3" aria-label="3 available"></td>
+          <td class="available-4" aria-label="4 available"></td>
+        </tr>
+        <tr class="half">
+          <th scope="row" class="time">10:30 AM</th>
+          <td class="available-2" aria-label="2 available"></td>
+          <td class="available-5" aria-label="5+ available"></td>
+          <td class="available-0" aria-label="0 available"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div id="legend">
+      <span>Availability</span>
+      <div id="legend-gradient"></div>
+    </div>
+  </body>
+</html>

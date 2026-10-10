@@ -1,0 +1,51 @@
+body {
+  background-color: #2b2b2b;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+#email {
+  padding: 50px;
+  margin-top: 50px;
+  width: 500px;
+  border: 2px solid #444444;
+  box-sizing: border-box;
+  background-color: #fbf7ee;
+  color: #1a1a1a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#confidential {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-left: 10px;
+  border: 3px solid #b91c1c;
+  color: #b91c1c;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transform: rotate(-10deg);
+}
+
+#top-secret {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-left: 20px;
+  border: 3px solid #1e3a8a;
+  color: #1e3a8a;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transform: rotate(8deg);
+}
+
+p {
+  margin: 24px 0;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.blurred {
+  filter: blur(3px);
+  user-select: none;
+}

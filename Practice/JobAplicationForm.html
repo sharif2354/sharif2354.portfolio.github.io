@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Form</title>
+    <link rel="stylesheet" href="JPF.CSS" />
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <h1>Job Application</h1>
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="position">Position Applied For:</label>
+        <select id="position" name="position" required>
+          <option value="">Select a role</option>
+          <option value="frontend">Frontend Developer</option>
+          <option value="backend">Backend Developer</option>
+          <option value="fullstack">Fullstack Engineer</option>
+        </select>
+
+        <fieldset class="radio-group">
+          <legend>Availability</legend>
+
+          <input type="radio" id="full-time" name="availability" value="full-time" required />
+          <label for="full-time">Full-Time</label>
+
+          <input type="radio" id="part-time" name="availability" value="part-time" required />
+          <label for="part-time">Part-Time</label>
+        </fieldset>
+
+        <label for="message">Cover Note / Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Submit Application</button>
+      </form>
+    </div>
+  </body>
+</html>

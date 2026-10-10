@@ -1,0 +1,63 @@
+/* Test 1 */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: #0b0d19;
+}
+
+/* Tests 3 & 4 */
+.space {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+/* Tests 7, 8, 9, 10, 22, 23 */
+.earth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background-color: #2b82c9;
+  border-radius: 50%;
+  box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Tests 13, 14, 15, 33 */
+.orbit {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  animation: orbit 5s linear infinite;
+}
+
+/* Tests 17, 18, 19, 20, 21, 24, 25 */
+.moon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background-color: #d1d5db;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+/* Tests 26 - 32 */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translate(-50%, -50%);
+  }
+  100% {
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+}

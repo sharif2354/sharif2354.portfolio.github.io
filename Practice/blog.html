@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering & Accessibility Blog</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --border: #334155;
+      --tag-bg: #0b1120;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 850px; margin: 0 auto; }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    h1 { font-size: 2.25rem; color: var(--accent); margin-bottom: 0.5rem; }
+    header p { color: var(--text-muted); font-size: 1.1rem; }
+    .blog-feed { display: flex; flex-direction: column; gap: 2rem; }
+    .post-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    h2 { font-size: 1.45rem; margin-bottom: 0.75rem; }
+    h2 a { color: var(--text); text-decoration: none; }
+    h2 a:hover { color: var(--accent); text-decoration: underline; }
+    .excerpt { color: #cbd5e1; margin-bottom: 1.25rem; }
+    .read-more-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .read-more-link:hover { color: var(--accent-hover); text-decoration: underline; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Engineering & Accessibility Insights</h1>
+      <p>Exploring web architecture, deep learning models, and inclusive design standards.</p>
+    </header>
+
+    <main id="main-content">
+      <section class="blog-feed" aria-label="Recent blog posts">
+
+        <article class="post-card" aria-labelledby="post-title-1">
+          <div class="post-meta">
+            <time datetime="2026-09-15">September 15, 2026</time>
+            <span aria-hidden="true">•</span>
+            <span class="tag">AI & Healthcare</span>
+            <span aria-hidden="true">•</span>
+            <span>6 min read</span>
+          </div>
+          <h2 id="post-title-1">
+            <a href="#">Dynamic ICU Mortality Prediction: Transformer Models in Critical Care</a>
+          </h2>
+          <p class="excerpt">
+            An in-depth look at implementing dynamic clinical prediction horizons using self-attention architectures on multi-parameter physiological time-series data.
+          </p>
+          <a href="#" class="read-more-link">
+            Read article <span class="sr-only">about Dynamic ICU Mortality Prediction: Transformer Models in Critical Care</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </article>
+
+        <article class="post-card" aria-labelledby="post-title-2">
+          <div class="post-meta">
+            <time datetime="2026-08-28">August 28, 2026</time>
+            <span aria-hidden="true">•</span>
+            <span class="tag">Web Accessibility</span>
+            <span aria-hidden="true">•</span>
+            <span>4 min read</span>
+          </div>
+          <h2 id="post-title-2">
+            <a href="#">Building Accessible Form Experiences with WAI-ARIA and Native HTML</a>
+          </h2>
+          <p class="excerpt">
+            Why native semantic attributes (required, type, scope) outshine custom overlays, and how to properly connect helper guidance using aria-describedby.
+          </p>
+          <a href="#" class="read-more-link">
+            Read article <span class="sr-only">about Building Accessible Form Experiences with WAI-ARIA and Native HTML</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </article>
+
+        <article class="post-card" aria-labelledby="post-title-3">
+          <div class="post-meta">
+            <time datetime="2026-07-10">July 10, 2026</time>
+            <span aria-hidden="true">•</span>
+            <span class="tag">Full-Stack Architecture</span>
+            <span aria-hidden="true">•</span>
+            <span>8 min read</span>
+          </div>
+          <h2 id="post-title-3">
+            <a href="#">Real-Time Event Streams with WebSockets and Django Channels</a>
+          </h2>
+          <p class="excerpt">
+            Architecting scalable real-time data flow pipelines for collaborative dashboards and e-commerce carts with secure connection handshakes.
+          </p>
+          <a href="#" class="read-more-link">
+            Read article <span class="sr-only">about Real-Time Event Streams with WebSockets and Django Channels</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </article>
+
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Engineering & Accessibility Hub. Built with semantic HTML & WCAG standards.</p>
+    </footer>
+  </div>
+</body>
+</html>

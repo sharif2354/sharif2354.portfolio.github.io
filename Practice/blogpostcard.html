@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Card</title>
+  <link rel="stylesheet" href="blogpostcard.css" />
+</head>
+<body>
+
+  <div class="personal-card">
+    <img
+      class="card-banner"
+      src="https://cdn.freecodecamp.org/curriculum/labs/cover-photo.jpg"
+      alt="Scenic Landscape Cover"
+    />
+    
+    <div class="card-body">
+      <div class="tag-row">
+        <span class="tag">Personal Project</span>
+        <span class="tag">Web Dev</span>
+      </div>
+
+      <h2 class="card-title">Building My Digital Portfolio</h2>
+      
+      <p class="card-excerpt">
+        A look into how I design modern interfaces, streamline personal productivity systems, and craft responsive web experiences.
+      </p>
+
+      <div class="author-section">
+        <div class="author-avatar">ME</div>
+        <div class="author-info">
+          <h4>Your Name</h4>
+          <p>Creator & Problem Solver</p>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button class="btn-action" id="toggle-story">Read Story</button>
+        <a class="btn-action btn-secondary" href="https://github.com" target="_blank">GitHub</a>
+      </div>
+
+      <div class="story-details" id="story-drawer">
+        <p>
+          Welcome! I focus on writing clean, modular code and crafting tools that solve real everyday friction points. Feel free to explore my open-source code and track my latest projects.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById("toggle-story");
+    const drawer = document.getElementById("story-drawer");
+
+    toggleBtn.addEventListener("click", () => {
+      const isOpen = drawer.classList.toggle("show");
+      toggleBtn.textContent = isOpen ? "Show Less" : "Read Story";
+    });
+  </script>
+</body>
+</html>

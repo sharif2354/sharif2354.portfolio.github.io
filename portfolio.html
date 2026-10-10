@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Md. Sharif Hosen</title>
+
+  <link rel="shortcut icon" href="./images/logo.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="myportfolio.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="portfolio-page">
+  <main>
+    <!-- ============================================================
+         SIDEBAR
+         ============================================================ -->
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="./images/profile pic.jpg" alt="Md. Sharif Hosen" width="80" />
+        </figure>
+        <div class="info-content">
+          <h1 class="name" title="Md. Sharif Hosen">Md. Sharif Hosen</h1>
+          <p class="title">Software Engineer | AI &amp; ML</p>
+        </div>
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+      </div>
+
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="mail-outline"></ion-icon></div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:sharifhosenridoy@gmail.com" class="contact-link">sharifhosenridoy@gmail.com</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="phone-portrait-outline"></ion-icon></div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+8801889604070" class="contact-link">+880 1889604070</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box"><ion-icon name="location-outline"></ion-icon></div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Mirpur-11, Dhaka, Bangladesh</address>
+            </div>
+          </li>
+        </ul>
+        <div class="separator"></div>
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://github.com/sharif2354" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/md-sharif-hosen-18a710239" class="social-link" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ============================================================
+         MAIN CONTENT
+         ============================================================ -->
+    <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="about.html" class="navbar-link">About</a></li>
+          <li class="navbar-item"><a href="resume.html" class="navbar-link">Resume</a></li>
+          <li class="navbar-item"><a href="portfolio.html" class="navbar-link active">Portfolio</a></li>
+          <li class="navbar-item"><a href="contact.html" class="navbar-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <article class="portfolio active" data-page="portfolio">
+        <header><h2 class="h2 article-title">Portfolio</h2></header>
+
+        <section class="projects">
+
+          <!-- ============================================================
+               DESKTOP FILTER BUTTONS
+               ============================================================ -->
+          <ul class="filter-list">
+            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+            <li class="filter-item"><button data-filter-btn>AI &amp; ML</button></li>
+            <li class="filter-item"><button data-filter-btn>Web development</button></li>
+            <li class="filter-item"><button data-filter-btn>Applications</button></li>
+            <li class="filter-item"><button data-filter-btn>Software engineering</button></li>
+          </ul>
+
+          <!-- ============================================================
+               MOBILE FILTER DROPDOWN
+               ============================================================ -->
+          <div class="filter-select-box">
+            <button class="filter-select" data-select>
+              <div class="select-value" data-selecct-value>Select category</div>
+              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
+            </button>
+            <ul class="select-list">
+              <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>AI &amp; ML</button></li>
+              <li class="select-item"><button data-select-item>Web development</button></li>
+              <li class="select-item"><button data-select-item>Applications</button></li>
+              <li class="select-item"><button data-select-item>Software engineering</button></li>
+            </ul>
+          </div>
+
+          <!-- ============================================================
+               PROJECT GRID
+               ============================================================ -->
+          <ul class="project-list">
+
+            <!-- ============ AI & ML ============ -->
+            <li class="project-item active" data-filter-item data-category="ai & ml">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/project-1.jpg" alt="ICU Mortality Prediction" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Dynamic ICU Mortality Prediction</h3>
+                <p class="project-category">AI &amp; ML</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="ai & ml">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/project-2.png" alt="SmartCart AI" loading="lazy" />
+                </figure>
+                <h3 class="project-title">SmartCart AI</h3>
+                <p class="project-category">AI &amp; ML</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="ai & ml">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/project-5.png" alt="Multimodal Lie Detection" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Multimodal Lie Detection</h3>
+                <p class="project-category">AI &amp; ML</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="ai & ml">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/project-6.png" alt="Animal Disease Detection" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Animal Disease Detection</h3>
+                <p class="project-category">AI &amp; ML</p>
+              </a>
+            </li>
+
+            <!-- ============ WEB DEVELOPMENT ============ -->
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/project-3.jpg" alt="Real-Time Chat App" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Real-Time Chat App</h3>
+                <p class="project-category">Web development</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/project-4.png" alt="Agriculture Farm Management" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Agriculture Farm Management</h3>
+                <p class="project-category">Web development</p>
+              </a>
+            </li>
+
+            <!-- ============================================================
+                 PRACTICE PROJECTS (inside Web development, links to practice.html)
+                 ============================================================ -->
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="practice.html" target="_blank" rel="noopener noreferrer">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/practice.jpeg" alt="Practice Projects Directory" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Practice Projects Directory</h3>
+                <p class="project-category">Web development</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="about Me.html" target="_blank" rel="noopener noreferrer">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/Gemini_Generated_Image_rprx11rprx11rprx.jpeg" alt="HTML Web Design Collection" loading="lazy" />
+                </figure>
+                <h3 class="project-title">HTML Web Design</h3>
+                <p class="project-category">Web development</p>
+              </a>
+            </li>
+
+            <!-- ============ APPLICATIONS ============ -->
+            <li class="project-item active" data-filter-item data-category="applications">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/project-7.png" alt="ATM Machine Simulation" loading="lazy" />
+                </figure>
+                <h3 class="project-title">ATM Machine Simulation</h3>
+                <p class="project-category">Applications</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="applications">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/project-8.jpg" alt="Car Parking Management" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Car Parking Management</h3>
+                <p class="project-category">Applications</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="applications">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/project-9.png" alt="Sudoku Solver" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Sudoku Solver (CSP)</h3>
+                <p class="project-category">Applications</p>
+              </a>
+            </li>
+
+            <!-- ============ SOFTWARE ENGINEERING ============ -->
+            <li class="project-item active" data-filter-item data-category="software engineering">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/project-4.png" alt="Full-Stack Platform" loading="lazy" />
+                </figure>
+                <h3 class="project-title">Full-Stack Platform Engineering</h3>
+                <p class="project-category">Software engineering</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="software engineering">
+              <a href="#">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <img src="./images/project-8.jpg" alt="REST API Architecture" loading="lazy" />
+                </figure>
+                <h3 class="project-title">REST API Architecture</h3>
+                <p class="project-category">Software engineering</p>
+              </a>
+            </li>
+
+          </ul>
+        </section>
+      </article>
+
+      <footer>
+        <p>&copy; 2026 MD. Sharif Hosen. Engineered with modern HTML5, CSS Grid, and Flexbox.</p>
+      </footer>
+    </div>
+  </main>
+
+  <script src="myportfolio.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
