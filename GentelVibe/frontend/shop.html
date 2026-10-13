@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GentleVibe - Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+    <header id="header">
+        <a href="index.html" class="logo-text">GentleVibe</a>
+        <nav>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count">0</span></a></li>
+                <li><a href="#" id="close"><i class="fa-solid fa-xmark"></i></a></li>
+            </ul>
+        </nav>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <section id="page-header">
+        <h2>#stayhome</h2>
+        <p>Save more with coupons &amp; up to 70% off!</p>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500&auto=format&fit=crop" alt="Cartoon Astronaut Tee">
+                <div class="des">
+                    <span>GentleVibe</span>
+                    <h5>Cartoon Astronaut Tee</h5>
+                    <div class="star"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#" onclick="event.stopPropagation(); addToCart('Cartoon Astronaut Tee', 78);"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500&auto=format&fit=crop" alt="Tropical Palm Shirt">
+                <div class="des">
+                    <span>GentleVibe</span>
+                    <h5>Tropical Palm Shirt</h5>
+                    <div class="star"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#" onclick="event.stopPropagation(); addToCart('Tropical Palm Shirt', 78);"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500&auto=format&fit=crop" alt="Floral Print Shirt">
+                <div class="des">
+                    <span>GentleVibe</span>
+                    <h5>Floral Print Shirt</h5>
+                    <div class="star"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#" onclick="event.stopPropagation(); addToCart('Floral Print Shirt', 78);"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500&auto=format&fit=crop" alt="Vintage Pink Tee">
+                <div class="des">
+                    <span>GentleVibe</span>
+                    <h5>Vintage Pink Tee</h5>
+                    <div class="star"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#" onclick="event.stopPropagation(); addToCart('Vintage Pink Tee', 78);"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <a href="index.html" class="logo-text">GentleVibe</a>
+            <h4>Contact</h4>
+            <p><strong>Address: </strong> Green University of Bangladesh, Dhaka</p>
+            <p><strong>Phone: </strong> +880 1889604070</p>
+        </div>
+        <div class="copyright">
+            <p>© 2026 GentleVibe — Developed by Md. Sharif Hosen</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

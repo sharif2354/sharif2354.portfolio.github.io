@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GentleVibe - Shopping Cart & Checkout</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        .pay-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .pay-card {
+            border: 2px solid #e2e9e1;
+            border-radius: 8px;
+            padding: 12px 8px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            background: #fff;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        .pay-card i { font-size: 18px; }
+        .pay-card:hover { border-color: #088178; }
+        .pay-card.active {
+            border-color: #088178;
+            background: #e8f6ea;
+            color: #088178;
+        }
+        .pay-info-box {
+            display: none;
+            background: #fbfdfc;
+            border: 1px dashed #088178;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .pay-info-box input {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 8px;
+            border: 1px solid #cce7d0;
+            border-radius: 4px;
+            font-size: 13px;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .pay-info-box input:focus { border-color: #088178; }
+        .card-row { display: flex; gap: 10px; margin-top: 8px; }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <a href="index.html" class="logo-text">GentleVibe</a>
+        <nav>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a class="active" href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count">0</span></a></li>
+                <li><a href="#" id="close"><i class="fa-solid fa-xmark"></i></a></li>
+            </ul>
+        </nav>
+        <div id="mobile">
+            <a class="active" href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <section id="page-header">
+        <h2>#cart</h2>
+        <p>Review items &amp; confirm your express order</p>
+    </section>
+
+    <section id="cart" class="section-p1">
+        <table>
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <section id="cart-add" class="section-p1">
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr><td>Cart Subtotal</td><td id="subtotal-val">$0.00</td></tr>
+                <tr><td>Shipping</td><td>Free</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong id="total-val">$0.00</strong></td></tr>
+            </table>
+        </div>
+
+        <div style="width: 50%; border: 1px solid #e2e9e1; padding: 25px; border-radius: 8px; background: #fff;">
+            <h3>Direct Checkout</h3>
+            <input type="text" id="cust-name" placeholder="Full Name" style="width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:4px;" required>
+            <input type="tel" id="cust-phone" placeholder="Phone Number (+880)" style="width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:4px;" required>
+            <textarea id="cust-address" placeholder="Delivery Address" style="width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:4px; height:60px;" required></textarea>
+
+            <h4 style="font-size: 14px; margin-top: 15px;">Select Payment Gateway:</h4>
+            
+            <div class="pay-grid">
+                <div class="pay-card active" onclick="selectPay('COD', this)">
+                    <i class="fa-solid fa-hand-holding-dollar"></i> Cash on Delivery
+                </div>
+                <div class="pay-card" onclick="selectPay('bKash', this)">
+                    <i class="fa-solid fa-mobile-screen"></i> bKash
+                </div>
+                <div class="pay-card" onclick="selectPay('Nagad', this)">
+                    <i class="fa-solid fa-money-bill-wave"></i> Nagad
+                </div>
+                <div class="pay-card" onclick="selectPay('Rocket', this)">
+                    <i class="fa-solid fa-paper-plane"></i> Rocket
+                </div>
+                <div class="pay-card" onclick="selectPay('Bank', this)">
+                    <i class="fa-solid fa-building-columns"></i> Bank Transfer
+                </div>
+                <div class="pay-card" onclick="selectPay('Visa', this)">
+                    <i class="fa-brands fa-cc-visa"></i> Visa / Card
+                </div>
+            </div>
+
+            <!-- bKash / Nagad / Rocket Details -->
+            <div id="box-mfs" class="pay-info-box">
+                <p><span id="mfs-title">Mobile Payment</span> Merchant / Personal Number: <strong>+880 1889604070</strong></p>
+                <p style="font-size: 12px; color: #666;">Use Send Money / Payment option and copy the Transaction ID below:</p>
+                <input type="text" id="mfs-trx" placeholder="Enter Transaction ID (TrxID)">
+            </div>
+
+            <!-- Bank Details -->
+            <div id="box-bank" class="pay-info-box">
+                <p><strong>Bank:</strong> Islami Bank Bangladesh PLC</p>
+                <p><strong>Account Name:</strong> Md. Sharif Hosen</p>
+                <p><strong>Account No:</strong> 2050 3450 1000 7890</p>
+                <p><strong>Branch:</strong> Dhaka Main Branch | Routing: 125272635</p>
+                <input type="text" id="bank-trx" placeholder="Enter Deposit Slip / Transfer Reference No.">
+                <input type="text" id="bank-sender" placeholder="Sender Account Name / Number">
+            </div>
+
+            <!-- Visa / Mastercard Details -->
+            <div id="box-visa" class="pay-info-box">
+                <p><strong>Secure Credit/Debit Card Gateway:</strong></p>
+                <input type="text" id="card-num" placeholder="Card Number (e.g. 4111 2222 3333 4444)" maxlength="19">
+                <div class="card-row">
+                    <input type="text" id="card-exp" placeholder="MM/YY" maxlength="5">
+                    <input type="password" id="card-cvv" placeholder="CVV" maxlength="4">
+                </div>
+                <input type="text" id="card-name" placeholder="Name on Card">
+            </div>
+
+            <button id="btn-submit-order" class="normal" style="width:100%; margin-top:14px; padding:15px; font-size:15px;">Place Order Now</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <a href="index.html" class="logo-text">GentleVibe</a>
+            <h4>Contact</h4>
+            <p><strong>Address: </strong> Green University of Bangladesh, Dhaka</p>
+            <p><strong>Phone: </strong> +880 1889604070</p>
+        </div>
+        <div class="copyright">
+            <p>© 2026 GentleVibe — Developed by Md. Sharif Hosen</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        let currentMethod = 'COD';
+
+        function selectPay(method, el) {
+            currentMethod = method;
+            document.querySelectorAll('.pay-card').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+
+            // Hide all sub-boxes
+            document.getElementById('box-mfs').style.display = 'none';
+            document.getElementById('box-bank').style.display = 'none';
+            document.getElementById('box-visa').style.display = 'none';
+
+            if (['bKash', 'Nagad', 'Rocket'].includes(method)) {
+                document.getElementById('box-mfs').style.display = 'block';
+                document.getElementById('mfs-title').innerText = method;
+                document.getElementById('mfs-trx').placeholder = `Enter ${method} Transaction ID (TrxID)`;
+            } else if (method === 'Bank') {
+                document.getElementById('box-bank').style.display = 'block';
+            } else if (method === 'Visa') {
+                document.getElementById('box-visa').style.display = 'block';
+            }
+        }
+
+        document.getElementById('btn-submit-order').addEventListener('click', async () => {
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+            const cart = getCart();
+
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            if (!name || !phone || !address) {
+                alert("Please fill in your name, phone number, and delivery address.");
+                return;
+            }
+
+            let trxId = '';
+            let payDetails = '';
+
+            // Validation per method
+            if (['bKash', 'Nagad', 'Rocket'].includes(currentMethod)) {
+                trxId = document.getElementById('mfs-trx').value.trim();
+                if (!trxId) {
+                    alert(`Please provide the ${currentMethod} Transaction ID (TrxID).`);
+                    return;
+                }
+            } else if (currentMethod === 'Bank') {
+                trxId = document.getElementById('bank-trx').value.trim();
+                payDetails = document.getElementById('bank-sender').value.trim();
+                if (!trxId) {
+                    alert("Please provide the Bank deposit/transfer reference number.");
+                    return;
+                }
+            } else if (currentMethod === 'Visa') {
+                const cardNum = document.getElementById('card-num').value.trim();
+                const cardExp = document.getElementById('card-exp').value.trim();
+                const cardCvv = document.getElementById('card-cvv').value.trim();
+                const cardHolder = document.getElementById('card-name').value.trim();
+
+                if (!cardNum || !cardExp || !cardCvv || !cardHolder) {
+                    alert("Please fill in all card details.");
+                    return;
+                }
+                // Mask card and synthesize simulated transaction token
+                trxId = 'AUTH-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+                payDetails = `Visa ending in ${cardNum.slice(-4)} (${cardHolder})`;
+            }
+
+            const payload = {
+                customerName: name,
+                customerPhone: phone,
+                shippingAddress: address,
+                paymentMethod: currentMethod,
+                paymentTrxId: trxId,
+                paymentDetails: payDetails,
+                items: cart.map(i => ({
+                    name: i.name,
+                    code: i.code || '',
+                    price: i.price,
+                    quantity: i.quantity,
+                    size: i.size,
+                    image: i.image || ''
+                })),
+                totalAmount: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+            };
+
+            try {
+                const res = await fetch('http://localhost:8000/api/orders', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!res.ok) throw new Error("Order creation failed");
+                const order = await res.json();
+                localStorage.removeItem('gv_cart');
+                window.location.href = `receipt.html?code=${order.order_code}`;
+            } catch (err) {
+                alert("Could not connect to FastAPI server. Please ensure `python main.py` is running on port 8000.");
+            }
+        });
+    </script>
+</body>
+</html>

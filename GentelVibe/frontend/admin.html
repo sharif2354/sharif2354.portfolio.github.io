@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GentleVibe Admin - Order Management</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-wrap { max-width: 1200px; margin: 30px auto; padding: 20px; font-family: sans-serif; }
+        .stats-grid { display: flex; gap: 20px; margin-bottom: 25px; }
+        .stat-card { flex: 1; padding: 20px; border-radius: 6px; background: #f4f6f8; text-align: center; }
+        .stat-card h3 { font-size: 2rem; color: #088178; margin: 0; }
+        .filters { margin-bottom: 15px; display: flex; gap: 10px; justify-content: space-between; }
+        .btn-filter { padding: 8px 16px; border: 1px solid #088178; background: #fff; cursor: pointer; border-radius: 4px; }
+        .btn-filter.active { background: #088178; color: #fff; }
+        .order-table { width: 100%; border-collapse: collapse; background: #fff; }
+        .order-table th, .order-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        .status-badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 0.85rem; }
+        .status-Pending { background: #ffeeba; color: #856404; }
+        .status-Delivered { background: #d4edda; color: #155724; }
+        .btn-act { padding: 6px 10px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: 600; color: #fff; }
+        .btn-del { background: #dc3545; }
+        .btn-view { background: #17a2b8; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="admin-wrap">
+        <h2>GentleVibe — Real-Time Order Management</h2>
+
+        <div class="stats-grid">
+            <div class="stat-card"><h3 id="stat-total">0</h3><p>Total Orders</p></div>
+            <div class="stat-card"><h3 id="stat-pending">0</h3><p>Pending Orders</p></div>
+            <div class="stat-card"><h3 id="stat-delivered">0</h3><p>Delivered Orders</p></div>
+        </div>
+
+        <div class="filters">
+            <div>
+                <button class="btn-filter active" onclick="setFilter('ALL', this)">All</button>
+                <button class="btn-filter" onclick="setFilter('Pending', this)">Pending</button>
+                <button class="btn-filter" onclick="setFilter('Delivered', this)">Delivered</button>
+            </div>
+            <button class="btn-act btn-del" onclick="clearAllOrders()">Clear Database</button>
+        </div>
+
+        <table class="order-table">
+            <thead>
+                <tr>
+                    <th>Order Code</th>
+                    <th>Customer</th>
+                    <th>Address</th>
+                    <th>Payment Info</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="admin-orders-body">
+                <tr><td colspan="7" style="text-align: center;">Loading orders...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let allOrders = [];
+        let currentFilter = 'ALL';
+
+        async function fetchOrders() {
+            try {
+                const res = await fetch('http://localhost:8000/api/orders');
+                allOrders = await res.json();
+                updateStats();
+                renderTable();
+            } catch (err) {
+                console.error("FastAPI backend unavailable:", err);
+            }
+        }
+
+        function updateStats() {
+            document.getElementById('stat-total').innerText = allOrders.length;
+            document.getElementById('stat-pending').innerText = allOrders.filter(o => o.status === 'Pending').length;
+            document.getElementById('stat-delivered').innerText = allOrders.filter(o => o.status === 'Delivered').length;
+        }
+
+        function setFilter(status, btn) {
+            currentFilter = status;
+            document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderTable();
+        }
+
+        function renderTable() {
+            const list = currentFilter === 'ALL' ? allOrders : allOrders.filter(o => o.status === currentFilter);
+            const tbody = document.getElementById('admin-orders-body');
+
+            if (list.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: #888;">No orders found.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = list.map(o => `
+                <tr>
+                    <td><strong>#${o.order_code || o.id}</strong></td>
+                    <td>${o.customerName}<br><small>${o.customerPhone}</small></td>
+                    <td>${o.shippingAddress}</td>
+                    <td>
+                        <strong style="color: #088178;">${o.paymentMethod || 'COD'}</strong>
+                        ${o.paymentTrxId && o.paymentTrxId !== 'N/A' ? `<br><small style="color:#555;">Ref: ${o.paymentTrxId}</small>` : ''}
+                        ${o.paymentDetails && o.paymentDetails !== 'N/A' ? `<br><small style="color:#888;">${o.paymentDetails}</small>` : ''}
+                    </td>
+                    <td>$${Number(o.totalAmount).toFixed(2)}</td>
+                    <td><span class="status-badge status-${o.status}">${o.status}</span></td>
+                    <td>
+                        <select onchange="updateStatus('${o.id}', this.value)">
+                            <option value="Pending" ${o.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                            <option value="Delivered" ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
+                        </select>
+                        <a href="receipt.html?code=${o.order_code || o.id}" target="_blank" class="btn-act btn-view">Receipt</a>
+                        <button class="btn-act btn-del" onclick="deleteOrder('${o.id}')">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function updateStatus(id, newStatus) {
+            await fetch(`http://localhost:8000/api/orders/${id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status: newStatus })
+            });
+            fetchOrders();
+        }
+
+        async function deleteOrder(id) {
+            if (!confirm(`Delete order #${id}?`)) return;
+            await fetch(`http://localhost:8000/api/orders/${id}`, { method: 'DELETE' });
+            fetchOrders();
+        }
+
+        async function clearAllOrders() {
+            if (!confirm("Are you sure you want to clear all stored database orders?")) return;
+            await fetch('http://localhost:8000/api/orders', { method: 'DELETE' });
+            fetchOrders();
+        }
+
+        setInterval(fetchOrders, 4000);
+        fetchOrders();
+    </script>
+</body>
+</html>

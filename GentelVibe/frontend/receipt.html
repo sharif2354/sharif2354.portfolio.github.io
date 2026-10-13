@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GentleVibe - Order Receipt</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .receipt-container { max-width: 650px; margin: 40px auto; padding: 24px; border: 1px solid #ddd; border-radius: 8px; font-family: sans-serif; background: #fff; }
+        .receipt-header { display: flex; justify-content: space-between; border-bottom: 2px solid #088178; padding-bottom: 12px; }
+        .receipt-header .brand-info p { margin: 2px 0; font-size: 0.85rem; color: #555; }
+        .receipt-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .receipt-table th, .receipt-table td { border-bottom: 1px solid #eee; padding: 10px; text-align: left; }
+        .receipt-total { text-align: right; margin-top: 15px; font-size: 1.2rem; font-weight: bold; color: #088178; }
+        .print-btn { background: #088178; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: 600; }
+        .print-btn:hover { background: #06655e; }
+        .receipt-footer { margin-top: 25px; border-top: 1px dashed #ccc; padding-top: 12px; text-align: center; font-size: 0.85rem; color: #666; }
+        @media print { .no-print { display: none; } }
+    </style>
+</head>
+<body>
+    <div class="receipt-container" id="receipt">
+        <div class="receipt-header">
+            <div class="brand-info">
+                <h2 style="color: #088178; margin-bottom: 4px;">GentleVibe</h2>
+                <p><strong>Developed by:</strong> Md. Sharif Hosen</p>
+                <p>Green University of Bangladesh, Dhaka</p>
+                <p>Phone: +880 1889604070</p>
+                <p style="margin-top: 6px;">Status: <strong id="order-status" style="color: #088178;">Loading...</strong></p>
+            </div>
+            <div style="text-align: right;">
+                <p>Order Code: <strong id="order-id"></strong></p>
+                <p>Date: <span id="order-date"></span></p>
+                <p>Payment: <strong id="order-pay-method" style="color:#088178;"></strong></p>
+                <p id="trx-row" style="display:none; font-size:12px; color:#555;">Reference / Trx: <strong id="order-trx"></strong></p>
+                <p id="detail-row" style="display:none; font-size:12px; color:#555;"><span id="order-detail"></span></p>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <h4 style="margin-bottom: 6px;">Billed To:</h4>
+            <p id="cust-name" style="margin: 2px 0; font-weight: 600;"></p>
+            <p id="cust-phone" style="margin: 2px 0; color: #555;"></p>
+            <p id="cust-address" style="margin: 2px 0; color: #555;"></p>
+        </div>
+
+        <table class="receipt-table">
+            <thead>
+                <tr>
+                    <th>Item</th><th>Qty</th><th>Price</th><th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="items-list"></tbody>
+        </table>
+
+        <div class="receipt-total">Total: $<span id="order-total"></span></div>
+
+        <div class="receipt-footer">
+            <p>© 2026 GentleVibe — Effortless Style for Everyday Comfort</p>
+            <p>Thank you for shopping with GentleVibe!</p>
+        </div>
+
+        <div style="margin-top: 25px; text-align: center;" class="no-print">
+            <button class="print-btn" onclick="window.print()">Print Receipt</button>
+            <a href="shop.html" style="margin-left: 15px; color: #088178; text-decoration: none; font-weight: 600;">Continue Shopping</a>
+        </div>
+    </div>
+
+    <script>
+        const code = new URLSearchParams(window.location.search).get('code') 
+                  || new URLSearchParams(window.location.search).get('orderId');
+
+        if (!code) {
+            document.body.innerHTML = "<p style='text-align:center; margin-top: 50px;'>No order specified.</p>";
+        } else {
+            fetch(`http://localhost:8000/api/orders/${code}`)
+                .then(r => {
+                    if (!r.ok) throw new Error('Order not found');
+                    return r.json();
+                })
+                .then(o => {
+                    document.getElementById('order-id').innerText = o.order_code || o.id;
+                    document.getElementById('order-status').innerText = o.status;
+                    document.getElementById('order-date').innerText = new Date(o.createdAt).toLocaleString();
+                    document.getElementById('order-pay-method').innerText = o.paymentMethod || 'COD';
+                    
+                    if (o.paymentTrxId && o.paymentTrxId !== 'N/A') {
+                        document.getElementById('trx-row').style.display = 'block';
+                        document.getElementById('order-trx').innerText = o.paymentTrxId;
+                    }
+                    if (o.paymentDetails && o.paymentDetails !== 'N/A') {
+                        document.getElementById('detail-row').style.display = 'block';
+                        document.getElementById('order-detail').innerText = o.paymentDetails;
+                    }
+
+                    document.getElementById('cust-name').innerText = o.customerName;
+                    document.getElementById('cust-phone').innerText = o.customerPhone;
+                    document.getElementById('cust-address').innerText = o.shippingAddress;
+                    document.getElementById('order-total').innerText = Number(o.totalAmount).toFixed(2);
+
+                    const tbody = document.getElementById('items-list');
+                    tbody.innerHTML = o.items.map(i => `
+                        <tr>
+                            <td>${i.name} (${i.size})</td>
+                            <td>${i.quantity}</td>
+                            <td>$${Number(i.price).toFixed(2)}</td>
+                            <td>$${(Number(i.price) * Number(i.quantity)).toFixed(2)}</td>
+                        </tr>
+                    `).join('');
+                })
+                .catch(() => {
+                    document.getElementById('receipt').innerHTML = `
+                        <p style='text-align:center; color: red;'>Could not load receipt. Make sure the backend server (main.py) is running on port 8000.</p>
+                        <div style='text-align:center; margin-top: 15px;'><a href='shop.html' style='color:#088178;'>Return to Shop</a></div>
+                    `;
+                });
+        }
+    </script>
+</body>
+</html>

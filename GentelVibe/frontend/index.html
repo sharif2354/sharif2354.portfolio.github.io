@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GentleVibe - Modern Everyday Apparel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+    <header id="header">
+        <a href="index.html" class="logo-text">GentleVibe</a>
+        <nav>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i><span id="cart-count">0</span></a></li>
+                <li><a href="#" id="close"><i class="fa-solid fa-xmark"></i></a></li>
+            </ul>
+        </nav>
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+            <i id="bar" class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <section id="hero">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deals</h2>
+        <h1>On all products</h1>
+        <p>Save more with coupons &amp; up to 70% off!</p>
+        <button onclick="window.location.href='shop.html';">Shop Now</button>
+    </section>
+
+    <section id="feature" class="section-p1">
+        <div class="fe-box"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=150" alt="Free Shipping"><h6>Free Shipping</h6></div>
+        <div class="fe-box"><img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=150" alt="Online Order"><h6>Online Order</h6></div>
+        <div class="fe-box"><img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=150" alt="Save Money"><h6>Save Money</h6></div>
+        <div class="fe-box"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=150" alt="Promotions"><h6>Promotions</h6></div>
+        <div class="fe-box"><img src="https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=150" alt="Happy Sell"><h6>Happy Sell</h6></div>
+        <div class="fe-box"><img src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=150" alt="24/7 Support"><h6>24/7 Support</h6></div>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection — New Modern Design</p>
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500&auto=format&fit=crop" alt="Cartoon Astronaut Tee">
+                <div class="des">
+                    <span>GentleVibe</span>
+                    <h5>Cartoon Astronaut Tee</h5>
+                    <div class="star"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#" onclick="event.stopPropagation(); addToCart('Cartoon Astronaut Tee', 78);"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500&auto=format&fit=crop" alt="Tropical Palm Shirt">
+                <div class="des">
+                    <span>GentleVibe</span>
+                    <h5>Tropical Palm Shirt</h5>
+                    <div class="star"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#" onclick="event.stopPropagation(); addToCart('Tropical Palm Shirt', 78);"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500&auto=format&fit=crop" alt="Floral Print Shirt">
+                <div class="des">
+                    <span>GentleVibe</span>
+                    <h5>Floral Print Shirt</h5>
+                    <div class="star"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#" onclick="event.stopPropagation(); addToCart('Floral Print Shirt', 78);"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500&auto=format&fit=crop" alt="Vintage Pink Tee">
+                <div class="des">
+                    <span>GentleVibe</span>
+                    <h5>Vintage Pink Tee</h5>
+                    <div class="star"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#" onclick="event.stopPropagation(); addToCart('Vintage Pink Tee', 78);"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="banner" class="section-m1">
+        <h4>Repair Services</h4>
+        <h2>Up to <span>70% Off</span> All T-Shirts &amp; Accessories</h2>
+        <button class="normal" onclick="window.location.href='shop.html';">Explore More</button>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <a href="index.html" class="logo-text">GentleVibe</a>
+            <h4>Contact</h4>
+            <p><strong>Address: </strong> Green University of Bangladesh, Purbachal American City, Dhaka</p>
+            <p><strong>Phone: </strong> +880 1889604070</p>
+            <p><strong>Hours: </strong> 09:00 - 17:00, Sun - Thu</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <i class="fa-brands fa-github"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="admin.html">Admin Dashboard</a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="login.html">Sign In</a>
+            <a href="cart.html">View Cart</a>
+        </div>
+        <div class="copyright">
+            <p>© 2026 GentleVibe — Developed by Md. Sharif Hosen</p>
+        </div>
+    </footer>
+
+    <!-- Chat Assistant Widget -->
+    <div id="gv-chat-container">
+        <button id="gv-chat-toggle">💬</button>
+        <div id="gv-chat-window" class="gv-hidden">
+            <div class="gv-chat-header">
+                <span>GentleVibe Assistant</span>
+                <button id="gv-chat-close">&times;</button>
+            </div>
+            <div id="gv-chat-messages" class="gv-chat-body">
+                <div class="gv-msg gv-bot-msg">Hi! How can I help you find outfits today?</div>
+            </div>
+            <form id="gv-chat-form" class="gv-chat-input-area">
+                <input type="text" id="gv-user-input" placeholder="Ask about items, sizes, or hours..." required autocomplete="off" />
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

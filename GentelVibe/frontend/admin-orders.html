@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GentleVibe Order Manager</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f6f9; margin: 0; padding: 25px; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .tabs { display: flex; gap: 10px; margin-bottom: 15px; }
+        .tab-btn { padding: 10px 18px; border: none; background: #e0e0e0; font-weight: bold; cursor: pointer; border-radius: 6px; }
+        .tab-btn.active { background: #088178; color: #fff; }
+        table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        th, td { padding: 14px 18px; border-bottom: 1px solid #eee; text-align: left; }
+        th { background: #fafafa; font-weight: 600; }
+        .badge { padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
+        .badge-pending { background: #fff3cd; color: #856404; }
+        .badge-delivered { background: #d4edda; color: #155724; }
+        .btn-act { padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem; font-weight: 600; }
+        .btn-done { background: #28a745; color: #fff; margin-right: 5px; }
+        .btn-receipt { background: #17a2b8; color: #fff; margin-right: 5px; }
+        .btn-del { background: #dc3545; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>Order & Delivery Management</h2>
+        <button class="btn-act btn-del" onclick="clearAllOrders()">Clear All Orders</button>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="setTab('Pending', this)">Pending Orders (<span id="count-pending">0</span>)</button>
+        <button class="tab-btn" onclick="setTab('Delivered', this)">Finished / Delivered (<span id="count-delivered">0</span>)</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Address</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="order-table-body">
+            <tr><td colspan="6" style="text-align: center;">Loading...</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        let currentTab = 'Pending';
+        let orders = [];
+
+        async function loadOrders() {
+            try {
+                const res = await fetch('http://localhost:8000/api/orders');
+                orders = await res.json();
+                
+                // Update counters
+                document.getElementById('count-pending').innerText = orders.filter(o => o.status === 'Pending').length;
+                document.getElementById('count-delivered').innerText = orders.filter(o => o.status === 'Delivered').length;
+                
+                renderTable();
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        function setTab(tab, btn) {
+            currentTab = tab;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderTable();
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('order-table-body');
+            const filtered = orders.filter(o => o.status === currentTab);
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: #888;">No ${currentTab.toLowerCase()} orders found.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(o => `
+                <tr>
+                    <td><strong>#${o.id}</strong></td>
+                    <td>${o.customerName}<br><small style="color:#666;">${o.customerPhone}</small></td>
+                    <td>${o.shippingAddress}</td>
+                    <td>$${o.totalAmount.toFixed(2)}</td>
+                    <td><span class="badge badge-${o.status.toLowerCase()}">${o.status}</span></td>
+                    <td>
+                        <button class="btn-act btn-receipt" onclick="window.open('receipt.html?orderId=${o.id}', '_blank')">Receipt</button>
+                        ${o.status === 'Pending' ? `<button class="btn-act btn-done" onclick="markDelivered('${o.id}')">Delivered</button>` : ''}
+                        <button class="btn-act btn-del" onclick="deleteOrder('${o.id}')">Clear</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function markDelivered(id) {
+            await fetch(`http://localhost:8000/api/orders/${id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status: 'Delivered' })
+            });
+            loadOrders();
+        }
+
+        async function deleteOrder(id) {
+            if (!confirm('Clear this order?')) return;
+            await fetch(`http://localhost:8000/api/orders/${id}`, { method: 'DELETE' });
+            loadOrders();
+        }
+
+        async function clearAllOrders() {
+            if (!confirm('Delete all stored orders?')) return;
+            await fetch('http://localhost:8000/api/orders', { method: 'DELETE' });
+            loadOrders();
+        }
+
+        // Live check every 3 seconds
+        setInterval(loadOrders, 3000);
+        loadOrders();
+    </script>
+</body>
+</html>
